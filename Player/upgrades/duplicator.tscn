@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b474wa60u2dk0"]
+
+[ext_resource type="Script" uid="uid://busiucoqakp61" path="res://Player/upgrades/duplicator.gd" id="1_x47te"]
+[ext_resource type="Texture2D" uid="uid://d1sfy5l7xqafw" path="res://Textures/Items/Upgrades/duplicator.png" id="2_opqh7"]
+
+[node name="Duplicator" type="Node2D"]
+script = ExtResource("1_x47te")
+max_level = 2
+amount = 1
+metadata/_custom_type_script = "uid://ct0r7o1cytfxn"
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_opqh7")

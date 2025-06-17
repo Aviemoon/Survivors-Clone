@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6ogq7jy2ct4b"]
+
+[ext_resource type="Script" uid="uid://c8cbvfhnpjpw6" path="res://Player/upgrades/ring_of_vitality.gd" id="1_l5qus"]
+[ext_resource type="Texture2D" uid="uid://6qy1thwpc4hs" path="res://Textures/Items/Upgrades/VitalityRing.png" id="2_2c4xj"]
+
+[node name="RingOfVitality" type="Node2D" groups=["weapon"]]
+script = ExtResource("1_l5qus")
+max_level = 10
+hp = 20
+metadata/_custom_type_script = "uid://ct0r7o1cytfxn"
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_2c4xj")

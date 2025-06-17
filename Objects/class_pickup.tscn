@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dce238ygm5h6n"]
+
+[ext_resource type="Script" uid="uid://dh6jhwo6p158i" path="res://Objects/class_pickup.gd" id="1_diyl4"]
+
+[node name="class_pickup" type="Area2D"]
+script = ExtResource("1_diyl4")

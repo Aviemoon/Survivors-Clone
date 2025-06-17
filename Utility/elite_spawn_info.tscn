@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://g1isx68vq2to"]
+
+[ext_resource type="Script" uid="uid://hobmur6igmdd" path="res://Utility/elite_spawn_info.gd" id="1_0d6i7"]
+
+[node name="elite_spawn_info" type="Node"]
+script = ExtResource("1_0d6i7")

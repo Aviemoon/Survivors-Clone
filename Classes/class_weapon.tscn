@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dppe7sluj1ay0"]
+
+[ext_resource type="Script" uid="uid://d04wmnoee8hrv" path="res://Classes/class_weapon.gd" id="1_xiomj"]
+
+[node name="class_weapon" type="Node2D"]
+script = ExtResource("1_xiomj")

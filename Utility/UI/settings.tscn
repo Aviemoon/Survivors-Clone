@@ -1,0 +1,97 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc22ofrxnfghy"]
+
+[ext_resource type="Theme" uid="uid://d1migwmo8e8th" path="res://Utility/UI/base_theme.tres" id="1_rbuc1"]
+[ext_resource type="Script" uid="uid://5nr1ctxs4rcq" path="res://Utility/UI/settings.gd" id="2_ycw7l"]
+
+[node name="Settings" type="Panel"]
+custom_minimum_size = Vector2(120, 170)
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_rbuc1")
+script = ExtResource("2_ycw7l")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_right = 47.0
+offset_bottom = 18.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 23.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="backButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+
+[node name="buttonLabel" type="Label" parent="VBoxContainer/backButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.5
+offset_right = 20.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Return"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="volumeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="volumeSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="infoLabel" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "disable these if the game is too laggy"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="dmgnumCheck" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+button_pressed = true
+text = "Damage Numbers"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+button_pressed = true
+text = "Afterimage effect"
+autowrap_mode = 2
+
+[connection signal="value_changed" from="VBoxContainer/volumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="toggled" from="VBoxContainer/dmgnumCheck" to="." method="_on_dmgnum_check_toggled"]
+[connection signal="toggled" from="VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dryoh3ctp7o7j"]
+
+[ext_resource type="Script" uid="uid://ct0r7o1cytfxn" path="res://Classes/class_upgrade.gd" id="1_xxhpj"]
+
+[node name="class_upgrade" type="Node2D" groups=["weapon"]]
+script = ExtResource("1_xxhpj")

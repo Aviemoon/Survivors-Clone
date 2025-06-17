@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgty2dbsp0g37"]
+
+[ext_resource type="Script" uid="uid://dxujqufh6s3ij" path="res://Player/attack/projectiles/thorn_projectile.gd" id="1_j8dfa"]
+[ext_resource type="Texture2D" uid="uid://cfevq5rm0qk0g" path="res://Textures/Items/Weapons/thorn.png" id="2_2s3bm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_356jn"]
+size = Vector2(20, 6)
+
+[node name="thorn_projectile" type="Area2D" node_paths=PackedStringArray("collision") groups=["attack", "attack_friendly"]]
+top_level = true
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_j8dfa")
+collision = NodePath("CollisionShape2D")
+base_damage = 1
+base_speed = 135
+base_knockback_amount = 35
+metadata/_custom_type_script = "uid://d1of10fhm7xbj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_356jn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.33333)
+texture = ExtResource("2_2s3bm")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(1, 0.3)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

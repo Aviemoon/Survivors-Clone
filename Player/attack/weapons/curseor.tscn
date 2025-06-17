@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2mnx5ynyt0s1"]
+
+[ext_resource type="Script" uid="uid://dkjbw4kit25j7" path="res://Player/attack/weapons/curseor.gd" id="1_fgb8g"]
+[ext_resource type="PackedScene" uid="uid://xrxpx5y80b3o" path="res://Utility/after_image.tscn" id="2_sqcwr"]
+[ext_resource type="Texture2D" uid="uid://dovlgi5plocyn" path="res://Textures/Items/Weapons/Curseor.png" id="2_wllbf"]
+[ext_resource type="PackedScene" uid="uid://wfq1r7jteisr" path="res://Player/attack/projectiles/curseor_projectile.tscn" id="2_wt6s1"]
+[ext_resource type="Texture2D" uid="uid://ceyiwmp752cex" path="res://Textures/Items/Weapons/CurseorInner.png" id="3_mbjn4"]
+[ext_resource type="Texture2D" uid="uid://cqtvfaiknu047" path="res://Textures/Items/Weapons/CurseorIcon.png" id="4_ekohi"]
+
+[node name="Curseor" type="Node2D" groups=["weapon"]]
+script = ExtResource("1_fgb8g")
+afterimage = ExtResource("2_sqcwr")
+projectile = ExtResource("2_wt6s1")
+cooldown = 0.25
+base_damage = 3
+metadata/_custom_type_script = "uid://d04wmnoee8hrv"
+
+[node name="attackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+
+[node name="spriteSizeTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+
+[node name="SpriteOutside" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("2_wllbf")
+
+[node name="SpriteInside" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("3_mbjn4")
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_ekohi")
+
+[connection signal="timeout" from="attackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="spriteSizeTimer" to="." method="_on_sprite_size_timer_timeout"]

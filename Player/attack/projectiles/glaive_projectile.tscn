@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://ph0n2t5231kg"]
+
+[ext_resource type="Script" uid="uid://bhm22x6lvw2o" path="res://Player/attack/projectiles/glaive_projectile.gd" id="1_aegjl"]
+[ext_resource type="Texture2D" uid="uid://ch2klatfnk3dn" path="res://Textures/Items/Weapons/glaive.png" id="2_ivqc8"]
+[ext_resource type="PackedScene" uid="uid://xrxpx5y80b3o" path="res://Utility/after_image.tscn" id="2_qmx7y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ivqc8"]
+radius = 14.4222
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57hik"]
+radius = 304.002
+
+[node name="glaive_projectile" type="Area2D" node_paths=PackedStringArray("collision") groups=["attack", "attack_friendly"]]
+top_level = true
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_aegjl")
+afterimage = ExtResource("2_qmx7y")
+collision = NodePath("CollisionShape2D")
+base_damage = 5
+base_speed = 35
+base_knockback_amount = 65
+metadata/_custom_type_script = "uid://d1of10fhm7xbj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.08616e-07, -2.08616e-07)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_ivqc8")
+debug_color = Color(0.672352, 0.337751, 0.948447, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ivqc8")
+
+[node name="despawnTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_57hik")
+debug_color = Color(0.190905, 0.830426, 0.756361, 0.193)
+
+[node name="bounceCooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="ScreenNotif" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="despawnTimer" to="." method="_on_despawn_timer_timeout"]
+[connection signal="screen_entered" from="ScreenNotif" to="." method="_on_screen_notif_screen_entered"]
+[connection signal="screen_exited" from="ScreenNotif" to="." method="_on_screen_notif_screen_exited"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://beauwiwuf5kmi"]
+
+[ext_resource type="Texture2D" uid="uid://7qpr1n08g16s" path="res://Textures/GUI/pointer.png" id="1_rmw6x"]
+[ext_resource type="Script" uid="uid://crwn42r2fdfwr" path="res://Utility/UI/item_arrow.gd" id="2_tjmuv"]
+[ext_resource type="Texture2D" uid="uid://f0mw4gy3bmxc" path="res://Textures/GUI/EmptyItem.png" id="3_xutra"]
+
+[node name="Sprite2D" type="Sprite2D"]
+rotation = 0.785398
+texture = ExtResource("1_rmw6x")
+script = ExtResource("2_tjmuv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(220, 128)
+texture = ExtResource("3_xutra")

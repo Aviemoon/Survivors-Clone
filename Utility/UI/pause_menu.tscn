@@ -1,0 +1,129 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceynjy5ryega0"]
+
+[ext_resource type="Theme" uid="uid://d1migwmo8e8th" path="res://Utility/UI/base_theme.tres" id="1_wm1am"]
+[ext_resource type="Script" uid="uid://dlw8kx7vdpui5" path="res://Utility/UI/pause_menu.gd" id="2_d068k"]
+[ext_resource type="PackedScene" uid="uid://dc22ofrxnfghy" path="res://Utility/UI/settings.tscn" id="3_qtq0c"]
+
+[node name="PauseMenu" type="Panel"]
+process_mode = 2
+custom_minimum_size = Vector2(120, 170)
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(0, 85)
+theme = ExtResource("1_wm1am")
+script = ExtResource("2_d068k")
+
+[node name="Settings" parent="." instance=ExtResource("3_qtq0c")]
+visible = false
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 170.0
+
+[node name="Label_paused" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 5.0
+offset_right = 32.0
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 18
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="."]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 25.0
+offset_right = 45.0
+offset_bottom = 55.0
+grow_horizontal = 2
+
+[node name="Label_resume" type="Label" parent="ResumeButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -7.5
+offset_right = 0.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+
+[node name="OptionsButton" type="Button" parent="."]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -15.0
+offset_right = 45.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label_options" type="Label" parent="OptionsButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -7.5
+offset_right = 33.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="."]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -55.0
+offset_right = 45.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label_quit" type="Label" parent="QuitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.5
+offset_right = 20.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[connection signal="pressed" from="Settings/VBoxContainer/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+
+[editable path="Settings"]

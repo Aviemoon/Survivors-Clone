@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci7thxdy1tndr"]
+
+[ext_resource type="Script" uid="uid://co7puajsanat7" path="res://Player/attack/projectiles/curse_sword_projectile.gd" id="1_86vjv"]
+[ext_resource type="Texture2D" uid="uid://31s7ftvy2n4o" path="res://Textures/Items/Weapons/FireBlade.png" id="2_cjbp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3d7t"]
+size = Vector2(22, 79)
+
+[node name="CurseSword_projectile" type="Area2D" node_paths=PackedStringArray("collision") groups=["attack", "attack_friendly"]]
+modulate = Color(1, 1, 1, 0.776471)
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_86vjv")
+collision = NodePath("CollisionShape2D")
+base_damage = 5
+base_speed = 400
+base_knockback_amount = 25
+metadata/_custom_type_script = "uid://d1of10fhm7xbj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.890879, -18.6091)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_n3d7t")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+position = Vector2(2.44544, -18.5546)
+rotation = 0.785398
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cjbp2")
+flip_h = true

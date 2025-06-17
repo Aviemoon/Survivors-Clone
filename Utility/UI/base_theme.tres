@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://d1migwmo8e8th"]
+
+[ext_resource type="FontFile" uid="uid://ou2ir100hdsn" path="res://Font/VCR_OSD_MONO_1.001.ttf" id="1_e4sna"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3ffd"]
+bg_color = Color(0.21725, 0.217023, 0.419384, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etd0g"]
+bg_color = Color(0.243563, 0.244306, 0.46275, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytlm0"]
+bg_color = Color(0.158265, 0.157814, 0.318465, 0.862745)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4sna"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4sna"]
+bg_color = Color(0.1248, 0.1248, 0.26, 0.819608)
+
+[resource]
+default_font = ExtResource("1_e4sna")
+Button/styles/hover = SubResource("StyleBoxFlat_b3ffd")
+Button/styles/normal = SubResource("StyleBoxFlat_etd0g")
+Button/styles/pressed = SubResource("StyleBoxFlat_ytlm0")
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.52549)
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_outline_size = 1
+Label/styles/normal = SubResource("StyleBoxEmpty_e4sna")
+Panel/styles/panel = SubResource("StyleBoxFlat_e4sna")

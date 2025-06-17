@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4omo0hra775t"]
+
+[ext_resource type="Script" uid="uid://cxb4xktvi3qhp" path="res://Player/upgrades/chestplate.gd" id="1_pgybn"]
+[ext_resource type="Texture2D" uid="uid://dr7xwfvp1im08" path="res://Textures/Items/Upgrades/Chestplate.png" id="2_35na1"]
+
+[node name="Chestplate" type="Node2D"]
+script = ExtResource("1_pgybn")
+max_level = 2
+player_speed = 6
+armor = 1
+metadata/_custom_type_script = "uid://ct0r7o1cytfxn"
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_35na1")

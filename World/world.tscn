@@ -1,0 +1,1227 @@
+[gd_scene load_steps=121 format=3 uid="uid://cdp8v1d83db0a"]
+
+[ext_resource type="Script" uid="uid://cqmv2apq7ogu7" path="res://World/world.gd" id="1_fv1y1"]
+[ext_resource type="Texture2D" uid="uid://b7dbmcns7j2c" path="res://Textures/dirt_full_new.png" id="1_p2osb"]
+[ext_resource type="Script" uid="uid://cgk4lr3hfwieg" path="res://Utility/spawn_info.gd" id="2_bkhv4"]
+[ext_resource type="PackedScene" uid="uid://c2f8xyyh8tty" path="res://Player/player.tscn" id="2_f68h0"]
+[ext_resource type="PackedScene" uid="uid://b6vaqvxhehjuk" path="res://Enemy/enemy_kolbold_weak.tscn" id="3_yf0ba"]
+[ext_resource type="PackedScene" uid="uid://cy3t4g1tjaqx0" path="res://Enemy/reaper.tscn" id="4_f23eu"]
+[ext_resource type="PackedScene" uid="uid://c5s7fdc45dcm" path="res://Enemy/rotten.tscn" id="4_w47uh"]
+[ext_resource type="Script" uid="uid://dh57yubqadsec" path="res://Utility/stat_upgrades.gd" id="4_yf0ba"]
+[ext_resource type="PackedScene" uid="uid://chf0u7nxme43m" path="res://Enemy/bat_small.tscn" id="5_awrha"]
+[ext_resource type="PackedScene" uid="uid://bsi1np4ehst0g" path="res://Utility/stopwatch.tscn" id="5_k8do8"]
+[ext_resource type="Script" uid="uid://hobmur6igmdd" path="res://Utility/elite_spawn_info.gd" id="5_lo5ox"]
+[ext_resource type="PackedScene" uid="uid://codiiay5ne87r" path="res://Enemy/eye_of_death.tscn" id="6_lo5ox"]
+[ext_resource type="PackedScene" uid="uid://b4vgustd35yl0" path="res://Objects/food.tscn" id="8_eidgh"]
+[ext_resource type="PackedScene" uid="uid://d3jlhy8sh86ef" path="res://Objects/magnet.tscn" id="10_w47uh"]
+[ext_resource type="Theme" uid="uid://d1migwmo8e8th" path="res://Utility/UI/base_theme.tres" id="13_oeat8"]
+
+[sub_resource type="Resource" id="Resource_f23eu"]
+script = ExtResource("2_bkhv4")
+time_start = 0
+time_end = 60
+enemy = ExtResource("5_awrha")
+enemy_num = 3
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_oeat8"]
+script = ExtResource("2_bkhv4")
+time_start = 0
+time_end = 3
+enemy = ExtResource("5_awrha")
+enemy_num = 10
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_o6lw0"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 0
+hp_bonus = 5
+dmg_bonus = 1
+armor_bonus = 0
+kbres_bonus = 0.7
+xp_bonus = 0
+size_mod = 1.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_dqu5g"]
+script = ExtResource("2_bkhv4")
+time_start = 20
+time_end = 40
+enemy = ExtResource("3_yf0ba")
+enemy_num = 4
+stat_modifier = SubResource("Resource_o6lw0")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_x0pyu"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 10
+hp_bonus = 14
+dmg_bonus = 1
+armor_bonus = 1
+kbres_bonus = 1.2
+xp_bonus = 1
+size_mod = 1.25
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_dg1ng"]
+script = ExtResource("2_bkhv4")
+time_start = 50
+time_end = 79
+enemy = ExtResource("5_awrha")
+enemy_num = 4
+stat_modifier = SubResource("Resource_x0pyu")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_yfuda"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 5
+hp_bonus = 13
+dmg_bonus = 1
+armor_bonus = 0
+kbres_bonus = 1.4
+xp_bonus = 3
+size_mod = 1.3
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_i8dl0"]
+script = ExtResource("2_bkhv4")
+time_start = 80
+time_end = 120
+enemy = ExtResource("5_awrha")
+enemy_num = 1
+stat_modifier = SubResource("Resource_yfuda")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_jf64p"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 8
+hp_bonus = 14
+dmg_bonus = 1
+armor_bonus = 0
+kbres_bonus = 1.6
+xp_bonus = 2
+size_mod = 1.14
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_rw02v"]
+script = ExtResource("2_bkhv4")
+time_start = 80
+time_end = 120
+enemy = ExtResource("3_yf0ba")
+enemy_num = 2
+stat_modifier = SubResource("Resource_jf64p")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_3sd22"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 15
+hp_bonus = 13
+dmg_bonus = 2
+armor_bonus = 1
+kbres_bonus = 1.6
+xp_bonus = 3
+size_mod = 1.2
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_s5a7k"]
+script = ExtResource("2_bkhv4")
+time_start = 100
+time_end = 130
+enemy = ExtResource("3_yf0ba")
+enemy_num = 3
+stat_modifier = SubResource("Resource_3sd22")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_koyeq"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 18
+hp_bonus = 17
+dmg_bonus = 1
+armor_bonus = 0
+kbres_bonus = 2.0
+xp_bonus = 1
+size_mod = 0.9
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_3ql07"]
+script = ExtResource("2_bkhv4")
+time_start = 100
+time_end = 130
+enemy = ExtResource("3_yf0ba")
+enemy_num = 1
+stat_modifier = SubResource("Resource_koyeq")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_3gnva"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 0
+hp_bonus = 17
+dmg_bonus = 0
+armor_bonus = 0
+kbres_bonus = 3.4
+xp_bonus = 0
+size_mod = 0.9
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_i5ake"]
+script = ExtResource("2_bkhv4")
+time_start = 120
+time_end = 200
+enemy = ExtResource("3_yf0ba")
+enemy_num = 1
+stat_modifier = SubResource("Resource_3gnva")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_w08tj"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 18
+hp_bonus = 18
+dmg_bonus = 0
+armor_bonus = 0
+kbres_bonus = 3.567
+xp_bonus = 1
+size_mod = 1.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_spf4h"]
+script = ExtResource("2_bkhv4")
+time_start = 100
+time_end = 130
+enemy = ExtResource("5_awrha")
+enemy_num = 2
+stat_modifier = SubResource("Resource_w08tj")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_or3hn"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 10
+hp_bonus = 20
+dmg_bonus = 2
+armor_bonus = 0
+kbres_bonus = 3.8
+xp_bonus = 3
+size_mod = 1.35
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_6gebr"]
+script = ExtResource("2_bkhv4")
+time_start = 125
+time_end = 180
+enemy = ExtResource("3_yf0ba")
+enemy_num = 3
+stat_modifier = SubResource("Resource_or3hn")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_84yts"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 18
+hp_bonus = 19
+dmg_bonus = 1
+armor_bonus = 0
+kbres_bonus = 4.4
+xp_bonus = 2
+size_mod = 1.1
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_15i7j"]
+script = ExtResource("2_bkhv4")
+time_start = 140
+time_end = 200
+enemy = ExtResource("5_awrha")
+enemy_num = 2
+stat_modifier = SubResource("Resource_84yts")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_s5cut"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 6
+hp_bonus = 21
+dmg_bonus = 2
+armor_bonus = 1
+kbres_bonus = 4.5
+xp_bonus = 4
+size_mod = 1.1
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_it66m"]
+script = ExtResource("2_bkhv4")
+time_start = 150
+time_end = 190
+enemy = ExtResource("3_yf0ba")
+enemy_num = 3
+stat_modifier = SubResource("Resource_s5cut")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_i52kj"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 15
+hp_bonus = 17
+dmg_bonus = 1
+armor_bonus = 0
+kbres_bonus = 4.6
+xp_bonus = 1
+size_mod = 1.5
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_y4tau"]
+script = ExtResource("2_bkhv4")
+time_start = 200
+time_end = 250
+enemy = ExtResource("5_awrha")
+enemy_num = 4
+stat_modifier = SubResource("Resource_i52kj")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_n40p1"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 2
+hp_bonus = 40
+dmg_bonus = 3
+armor_bonus = 2
+kbres_bonus = 4.7
+xp_bonus = 10
+size_mod = 2.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_dlis5"]
+script = ExtResource("2_bkhv4")
+time_start = 245
+time_end = 300
+enemy = ExtResource("3_yf0ba")
+enemy_num = 1
+stat_modifier = SubResource("Resource_n40p1")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_h4hkh"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 16
+hp_bonus = 45
+dmg_bonus = 2
+armor_bonus = 1
+kbres_bonus = 5.0
+xp_bonus = 4
+size_mod = 1.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_xu702"]
+script = ExtResource("2_bkhv4")
+time_start = 260
+time_end = 310
+enemy = ExtResource("5_awrha")
+enemy_num = 3
+stat_modifier = SubResource("Resource_h4hkh")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_wm6hh"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 35
+hp_bonus = 24
+dmg_bonus = 1
+armor_bonus = 1
+kbres_bonus = 2.0
+xp_bonus = 3
+size_mod = 1.2
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_8kjm2"]
+script = ExtResource("2_bkhv4")
+time_start = 250
+time_end = 300
+enemy = ExtResource("3_yf0ba")
+enemy_num = 3
+stat_modifier = SubResource("Resource_wm6hh")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_i363k"]
+script = ExtResource("4_yf0ba")
+speed_bonus = -10
+hp_bonus = -45
+dmg_bonus = -1
+armor_bonus = 5
+kbres_bonus = 0.0
+xp_bonus = 0
+size_mod = 1.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_o2cvn"]
+script = ExtResource("2_bkhv4")
+time_start = 300
+time_end = 320
+enemy = ExtResource("4_f23eu")
+enemy_num = 1
+stat_modifier = SubResource("Resource_i363k")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_4giqt"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 15
+hp_bonus = 30
+dmg_bonus = 2
+armor_bonus = 2
+kbres_bonus = 6.0
+xp_bonus = 0
+size_mod = 1.45
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_8iv6r"]
+script = ExtResource("2_bkhv4")
+time_start = 300
+time_end = 345
+enemy = ExtResource("3_yf0ba")
+enemy_num = 4
+stat_modifier = SubResource("Resource_4giqt")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_3i426"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 25
+hp_bonus = 37
+dmg_bonus = 5
+armor_bonus = 3
+kbres_bonus = 8.0
+xp_bonus = 9
+size_mod = 1.9
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_1ex6t"]
+script = ExtResource("2_bkhv4")
+time_start = 350
+time_end = 425
+enemy = ExtResource("3_yf0ba")
+enemy_num = 5
+stat_modifier = SubResource("Resource_3i426")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_07sb8"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 30
+hp_bonus = 8
+dmg_bonus = 4
+armor_bonus = 0
+kbres_bonus = 4.0
+xp_bonus = 0
+size_mod = 1.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_32rkg"]
+script = ExtResource("2_bkhv4")
+time_start = 343
+time_end = 430
+enemy = ExtResource("3_yf0ba")
+enemy_num = 1
+stat_modifier = SubResource("Resource_07sb8")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_2hrtt"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 15
+hp_bonus = -230
+dmg_bonus = 3
+armor_bonus = 1
+kbres_bonus = 5.0
+xp_bonus = 50
+size_mod = 0.77
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_g3lo7"]
+script = ExtResource("2_bkhv4")
+time_start = 440
+time_end = 475
+enemy = ExtResource("6_lo5ox")
+enemy_num = 1
+stat_modifier = SubResource("Resource_2hrtt")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_a5wjk"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 25
+hp_bonus = 24
+dmg_bonus = 5
+armor_bonus = 0
+kbres_bonus = 7.0
+xp_bonus = 7
+size_mod = 2.5
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_oyb3p"]
+script = ExtResource("2_bkhv4")
+time_start = 430
+time_end = 460
+enemy = ExtResource("5_awrha")
+enemy_num = 2
+stat_modifier = SubResource("Resource_a5wjk")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_dmovf"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 2
+hp_bonus = -23
+dmg_bonus = 1
+armor_bonus = 8
+kbres_bonus = 7.0
+xp_bonus = 0
+size_mod = 0.95
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_m1472"]
+script = ExtResource("2_bkhv4")
+time_start = 400
+time_end = 430
+enemy = ExtResource("4_f23eu")
+enemy_num = 2
+stat_modifier = SubResource("Resource_dmovf")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_5aim4"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 20
+hp_bonus = 7
+dmg_bonus = 3
+armor_bonus = 1
+kbres_bonus = 15.0
+xp_bonus = 40
+size_mod = 2.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_h4nnu"]
+script = ExtResource("2_bkhv4")
+time_start = 450
+time_end = 465
+enemy = ExtResource("4_w47uh")
+enemy_num = 2
+stat_modifier = SubResource("Resource_5aim4")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_houwb"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 17
+hp_bonus = 40
+dmg_bonus = 4
+armor_bonus = 3
+kbres_bonus = 4.0
+xp_bonus = 0
+size_mod = 1.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_o8btu"]
+script = ExtResource("2_bkhv4")
+time_start = 470
+time_end = 530
+enemy = ExtResource("3_yf0ba")
+enemy_num = 5
+stat_modifier = SubResource("Resource_houwb")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_2j1j3"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 35
+hp_bonus = 45
+dmg_bonus = 4
+armor_bonus = 0
+kbres_bonus = 3.0
+xp_bonus = 5
+size_mod = 0.8
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_12w7i"]
+script = ExtResource("2_bkhv4")
+time_start = 500
+time_end = 600
+enemy = ExtResource("5_awrha")
+enemy_num = 5
+stat_modifier = SubResource("Resource_2j1j3")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_dk2pd"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 23
+hp_bonus = -500
+dmg_bonus = 5
+armor_bonus = 1
+kbres_bonus = 4.0
+xp_bonus = 0
+size_mod = 0.75
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_a2jdt"]
+script = ExtResource("2_bkhv4")
+time_start = 630
+time_end = 700
+enemy = ExtResource("6_lo5ox")
+enemy_num = 1
+stat_modifier = SubResource("Resource_dk2pd")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_xmbla"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 24
+hp_bonus = 54
+dmg_bonus = 4
+armor_bonus = 5
+kbres_bonus = 6.0
+xp_bonus = 5
+size_mod = 2.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_ngrok"]
+script = ExtResource("2_bkhv4")
+time_start = 520
+time_end = 620
+enemy = ExtResource("3_yf0ba")
+enemy_num = 3
+stat_modifier = SubResource("Resource_xmbla")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_isdyu"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 65
+hp_bonus = 80
+dmg_bonus = 4
+armor_bonus = 10
+kbres_bonus = 5.0
+xp_bonus = 3
+size_mod = 2.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_8tc7i"]
+script = ExtResource("2_bkhv4")
+time_start = 600
+time_end = 700
+enemy = ExtResource("5_awrha")
+enemy_num = 3
+stat_modifier = SubResource("Resource_isdyu")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_c4deb"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 55
+hp_bonus = 85
+dmg_bonus = 4
+armor_bonus = 7
+kbres_bonus = 10.0
+xp_bonus = 10
+size_mod = 2.5
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_sw2vp"]
+script = ExtResource("2_bkhv4")
+time_start = 625
+time_end = 725
+enemy = ExtResource("3_yf0ba")
+enemy_num = 4
+stat_modifier = SubResource("Resource_c4deb")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_m7w2p"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 50
+hp_bonus = -400
+dmg_bonus = 10
+armor_bonus = 5
+kbres_bonus = 8.0
+xp_bonus = 800
+size_mod = 0.95
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_5yard"]
+script = ExtResource("2_bkhv4")
+time_start = 690
+time_end = 899
+enemy = ExtResource("6_lo5ox")
+enemy_num = 1
+stat_modifier = SubResource("Resource_m7w2p")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_0sujd"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 40
+hp_bonus = 120
+dmg_bonus = 3
+armor_bonus = 0
+kbres_bonus = 7.0
+xp_bonus = 0
+size_mod = 1.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_cxdgx"]
+script = ExtResource("2_bkhv4")
+time_start = 660
+time_end = 800
+enemy = ExtResource("5_awrha")
+enemy_num = 4
+stat_modifier = SubResource("Resource_0sujd")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_u84s7"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 85
+hp_bonus = 100
+dmg_bonus = 5
+armor_bonus = 10
+kbres_bonus = 11.0
+xp_bonus = 15
+size_mod = 2.6
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_33bit"]
+script = ExtResource("2_bkhv4")
+time_start = 700
+time_end = 900
+enemy = ExtResource("3_yf0ba")
+enemy_num = 4
+stat_modifier = SubResource("Resource_u84s7")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_pjvc3"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 135
+hp_bonus = 155
+dmg_bonus = 10
+armor_bonus = 10
+kbres_bonus = 10.0
+xp_bonus = 20
+size_mod = 1.8
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_vnce2"]
+script = ExtResource("2_bkhv4")
+time_start = 700
+time_end = 900
+enemy = ExtResource("5_awrha")
+enemy_num = 4
+stat_modifier = SubResource("Resource_pjvc3")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_hm3sf"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 35
+hp_bonus = 700
+dmg_bonus = 0
+armor_bonus = 0
+kbres_bonus = 0.0
+xp_bonus = 0
+size_mod = 1.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_7mkwo"]
+script = ExtResource("2_bkhv4")
+time_start = 730
+time_end = 830
+enemy = ExtResource("4_f23eu")
+enemy_num = 1
+stat_modifier = SubResource("Resource_hm3sf")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_flr5a"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 40
+hp_bonus = 1122
+dmg_bonus = 5
+armor_bonus = 0
+kbres_bonus = 0.0
+xp_bonus = 0
+size_mod = 1.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_tdcij"]
+script = ExtResource("2_bkhv4")
+time_start = 835
+time_end = 903
+enemy = ExtResource("4_f23eu")
+enemy_num = 2
+stat_modifier = SubResource("Resource_flr5a")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_dpog3"]
+script = ExtResource("2_bkhv4")
+time_start = 890
+time_end = 910
+enemy = ExtResource("4_w47uh")
+enemy_num = 2
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_p5g83"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 0
+hp_bonus = 700
+dmg_bonus = 0
+armor_bonus = 0
+kbres_bonus = 0.0
+xp_bonus = 0
+size_mod = 0.6
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_uvivd"]
+script = ExtResource("2_bkhv4")
+time_start = 890
+time_end = 905
+enemy = ExtResource("6_lo5ox")
+enemy_num = 2
+stat_modifier = SubResource("Resource_p5g83")
+metadata/_custom_type_script = "uid://cgk4lr3hfwieg"
+
+[sub_resource type="Resource" id="Resource_pj0qk"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 5
+hp_bonus = -3
+dmg_bonus = 0
+armor_bonus = 0
+kbres_bonus = 0.0
+xp_bonus = 0
+size_mod = 0.9
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_w2jjc"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([1, 2, 3])
+enemy = ExtResource("5_awrha")
+enemy_num = 10
+stat_modifier = SubResource("Resource_pj0qk")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_aei6u"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([35, 75, 599])
+enemy = ExtResource("4_f23eu")
+enemy_num = 1
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_5xkvv"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 0
+hp_bonus = 100
+dmg_bonus = 0
+armor_bonus = 1
+kbres_bonus = 0.0
+xp_bonus = 130
+size_mod = 1.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_awrha"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([90, 180, 700])
+enemy = ExtResource("6_lo5ox")
+enemy_num = 1
+stat_modifier = SubResource("Resource_5xkvv")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_kcyjf"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 4
+hp_bonus = 70
+dmg_bonus = 0
+armor_bonus = 0
+kbres_bonus = 3.0
+xp_bonus = 0
+size_mod = 1.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_xw5lg"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([50, 150, 650])
+enemy = ExtResource("4_w47uh")
+enemy_num = 1
+stat_modifier = SubResource("Resource_kcyjf")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_ne13v"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 10
+hp_bonus = 220
+dmg_bonus = 1
+armor_bonus = 1
+kbres_bonus = 2.0
+xp_bonus = 50
+size_mod = 1.3
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_5l1j7"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([180, 280, 330, 600, 800])
+enemy = ExtResource("4_f23eu")
+enemy_num = 1
+stat_modifier = SubResource("Resource_ne13v")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_0lysu"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 5
+hp_bonus = 500
+dmg_bonus = 2
+armor_bonus = 1
+kbres_bonus = 4.0
+xp_bonus = 0
+size_mod = 1.35
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_26uyv"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([210, 260, 777, 780])
+enemy = ExtResource("4_w47uh")
+enemy_num = 2
+stat_modifier = SubResource("Resource_0lysu")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_yxuth"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 10
+hp_bonus = 250
+dmg_bonus = 2
+armor_bonus = 1
+kbres_bonus = 0.0
+xp_bonus = 335
+size_mod = 0.9
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_05jqx"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([230, 270, 299])
+enemy = ExtResource("6_lo5ox")
+enemy_num = 1
+stat_modifier = SubResource("Resource_yxuth")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_eyejc"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 10
+hp_bonus = 600
+dmg_bonus = 2
+armor_bonus = 4
+kbres_bonus = 8.0
+xp_bonus = 50
+size_mod = 2.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_l3fwa"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([335, 360, 415, 460, 500, 560])
+enemy = ExtResource("4_w47uh")
+enemy_num = 2
+stat_modifier = SubResource("Resource_eyejc")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_jdjvx"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 12
+hp_bonus = 600
+dmg_bonus = 1
+armor_bonus = 2
+kbres_bonus = 0.0
+xp_bonus = 1350
+size_mod = 1.25
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_8g8aq"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([360, 390, 420, 560, 565])
+enemy = ExtResource("6_lo5ox")
+enemy_num = 1
+stat_modifier = SubResource("Resource_jdjvx")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_fl40u"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 0
+hp_bonus = 4444
+dmg_bonus = 2
+armor_bonus = 3
+kbres_bonus = 0.0
+xp_bonus = 7000
+size_mod = 1.85
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_6agqs"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([425, 600, 800, 1000])
+enemy = ExtResource("6_lo5ox")
+enemy_num = 1
+stat_modifier = SubResource("Resource_fl40u")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_of366"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 5
+hp_bonus = 1000
+dmg_bonus = 2
+armor_bonus = 3
+kbres_bonus = 11.0
+xp_bonus = 300
+size_mod = 2.0
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_lspjd"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([440, 500, 550, 600, 630, 700, 730, 900])
+enemy = ExtResource("4_w47uh")
+enemy_num = 1
+stat_modifier = SubResource("Resource_of366")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_q37gl"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 38
+hp_bonus = 999
+dmg_bonus = 2
+armor_bonus = 4
+kbres_bonus = 10.0
+xp_bonus = 2000
+size_mod = 1.35
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_hejoe"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([599, 700, 800, 830])
+enemy = ExtResource("6_lo5ox")
+enemy_num = 1
+stat_modifier = SubResource("Resource_q37gl")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_0g7xh"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 20
+hp_bonus = 9208
+dmg_bonus = 7
+armor_bonus = 5
+kbres_bonus = 0.0
+xp_bonus = 0
+size_mod = 2.2
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_jjj8k"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([899, 902])
+enemy = ExtResource("6_lo5ox")
+enemy_num = 2
+stat_modifier = SubResource("Resource_0g7xh")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="Resource" id="Resource_2kojl"]
+script = ExtResource("4_yf0ba")
+speed_bonus = 30
+hp_bonus = 500
+dmg_bonus = 0
+armor_bonus = 5
+kbres_bonus = 20.0
+xp_bonus = 0
+size_mod = 1.4
+metadata/_custom_type_script = "uid://dh57yubqadsec"
+
+[sub_resource type="Resource" id="Resource_xagyi"]
+script = ExtResource("5_lo5ox")
+times = Array[int]([899, 905])
+enemy = ExtResource("4_f23eu")
+enemy_num = 5
+stat_modifier = SubResource("Resource_2kojl")
+metadata/_custom_type_script = "uid://hobmur6igmdd"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j8job"]
+
+[sub_resource type="Curve2D" id="Curve2D_8efh3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -368, -231, 0, 0, 0, 0, 357, -234, 0, 0, 0, 0, 355, 212, 0, 0, 0, 0, -372, 218, 0, 0, 0, 0, -368, -233)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w47uh"]
+size = Vector2(687, 411)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_fv1y1")
+enemylist = Array[PackedScene]([ExtResource("3_yf0ba"), ExtResource("5_awrha"), ExtResource("4_f23eu"), ExtResource("4_w47uh"), ExtResource("6_lo5ox")])
+spawns = Array[ExtResource("2_bkhv4")]([SubResource("Resource_f23eu"), SubResource("Resource_oeat8"), SubResource("Resource_dqu5g"), SubResource("Resource_dg1ng"), SubResource("Resource_i8dl0"), SubResource("Resource_rw02v"), SubResource("Resource_s5a7k"), SubResource("Resource_3ql07"), SubResource("Resource_i5ake"), SubResource("Resource_spf4h"), SubResource("Resource_6gebr"), SubResource("Resource_15i7j"), SubResource("Resource_it66m"), SubResource("Resource_y4tau"), SubResource("Resource_y4tau"), SubResource("Resource_dlis5"), SubResource("Resource_xu702"), SubResource("Resource_8kjm2"), SubResource("Resource_o2cvn"), SubResource("Resource_8iv6r"), SubResource("Resource_1ex6t"), SubResource("Resource_32rkg"), SubResource("Resource_g3lo7"), SubResource("Resource_oyb3p"), SubResource("Resource_m1472"), SubResource("Resource_h4nnu"), SubResource("Resource_o8btu"), SubResource("Resource_12w7i"), SubResource("Resource_a2jdt"), SubResource("Resource_ngrok"), SubResource("Resource_8tc7i"), SubResource("Resource_sw2vp"), SubResource("Resource_5yard"), SubResource("Resource_cxdgx"), SubResource("Resource_33bit"), SubResource("Resource_vnce2"), SubResource("Resource_7mkwo"), SubResource("Resource_tdcij"), SubResource("Resource_dpog3"), SubResource("Resource_uvivd")])
+elite_spawns = Array[ExtResource("5_lo5ox")]([SubResource("Resource_w2jjc"), SubResource("Resource_aei6u"), SubResource("Resource_awrha"), SubResource("Resource_xw5lg"), SubResource("Resource_5l1j7"), SubResource("Resource_26uyv"), SubResource("Resource_05jqx"), SubResource("Resource_l3fwa"), SubResource("Resource_8g8aq"), SubResource("Resource_6agqs"), SubResource("Resource_lspjd"), SubResource("Resource_hejoe"), SubResource("Resource_jjj8k"), SubResource("Resource_xagyi")])
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.701961, 0.831373, 1, 1)
+z_index = -10
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(22, -0.999996)
+scale = Vector2(1.56724, 1.56724)
+texture = ExtResource("1_p2osb")
+region_enabled = true
+region_rect = Rect2(-8000, -4000, 32000, 32000)
+
+[node name="Player" parent="." instance=ExtResource("2_f68h0")]
+
+[node name="HurtboxCollisionShape2D" parent="Player/Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_j8job")
+
+[node name="Item_list" parent="Player/GUI_layer/GUI" index="5"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 24.0
+offset_bottom = 24.0
+
+[node name="EnemySpawner" type="Path2D" parent="Player"]
+curve = SubResource("Curve2D_8efh3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/EnemySpawner"]
+position = Vector2(-368, -231)
+rotation = -0.00413791
+
+[node name="ViewArea" type="Area2D" parent="Player"]
+unique_name_in_owner = true
+collision_mask = 4
+
+[node name="ViewCollision" type="CollisionShape2D" parent="Player/ViewArea"]
+position = Vector2(-3.5, -6.5)
+shape = SubResource("RectangleShape2D_w47uh")
+debug_color = Color(0, 0.513726, 0.701961, 0.180392)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+process_mode = 2
+visible = false
+
+[node name="Control" type="Control" parent="Player/CanvasLayer"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_oeat8")
+
+[node name="BlackRect" type="ColorRect" parent="Player/CanvasLayer/Control"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label_win" type="Label" parent="Player/CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 50.0
+offset_right = 20.0
+offset_bottom = 73.0
+grow_horizontal = 2
+pivot_offset = Vector2(155, 21)
+theme = ExtResource("13_oeat8")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/font_size = 48
+text = "!!YOU WIN!!"
+
+[node name="playButton" type="Button" parent="Player/CanvasLayer/Control"]
+unique_name_in_owner = true
+process_mode = 2
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(80, 20)
+
+[node name="Label" type="Label" parent="Player/CanvasLayer/Control/playButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.5
+offset_right = 20.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Play again"
+
+[node name="quitButton" type="Button" parent="Player/CanvasLayer/Control"]
+unique_name_in_owner = true
+process_mode = 2
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = 50.0
+offset_right = 80.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(80, 20)
+
+[node name="Label" type="Label" parent="Player/CanvasLayer/Control/quitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.5
+offset_right = 20.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Main Menu"
+
+[node name="spawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Stopwatch" parent="." instance=ExtResource("5_k8do8")]
+
+[node name="GameTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="food" parent="." instance=ExtResource("8_eidgh")]
+position = Vector2(-1, 319)
+
+[node name="Magnet" parent="." instance=ExtResource("10_w47uh")]
+position = Vector2(715, 4)
+
+[node name="Magnet2" parent="." instance=ExtResource("10_w47uh")]
+position = Vector2(1, -304)
+
+[node name="food2" parent="." instance=ExtResource("8_eidgh")]
+position = Vector2(-570, -4)
+
+[node name="winTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="endlessTimer" type="Timer" parent="."]
+wait_time = 32.5
+
+[connection signal="area_entered" from="Player/ViewArea" to="." method="_on_view_area_area_entered"]
+[connection signal="area_exited" from="Player/ViewArea" to="." method="_on_view_area_area_exited"]
+[connection signal="body_exited" from="Player/ViewArea" to="." method="_on_view_area_body_exited"]
+[connection signal="pressed" from="Player/CanvasLayer/Control/playButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Player/CanvasLayer/Control/quitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
+[connection signal="timeout" from="endlessTimer" to="." method="_on_endless_timer_timeout"]
+
+[editable path="Player"]
+[editable path="Player/Hurtbox"]
+[editable path="Player/GUI_layer/GUI/PauseMenu"]
+[editable path="Player/GUI_layer/GUI/PauseMenu/Settings"]

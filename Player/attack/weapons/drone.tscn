@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://qjaoa1wp2q4y"]
+
+[ext_resource type="Script" uid="uid://b68p1ccn2le5d" path="res://Player/attack/weapons/drone.gd" id="1_a53y8"]
+[ext_resource type="PackedScene" uid="uid://c4lqxqf4xkikk" path="res://Player/attack/projectiles/drone_projectile.tscn" id="2_grh8w"]
+[ext_resource type="Texture2D" uid="uid://c85ee18a5wbxk" path="res://Textures/Items/Weapons/probe.png" id="3_5llvc"]
+
+[node name="Drone" type="Node2D" groups=["weapon"]]
+script = ExtResource("1_a53y8")
+projectile = ExtResource("2_grh8w")
+damage = 3
+metadata/_custom_type_script = "uid://d04wmnoee8hrv"
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_5llvc")
+
+[node name="attackTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="attackTimer" to="." method="_on_attack_timer_timeout"]

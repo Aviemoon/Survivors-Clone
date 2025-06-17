@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://jpnnl2trsko4"]
+
+[ext_resource type="Script" uid="uid://cictku6j2k7dw" path="res://Player/attack/weapons/boomerang.gd" id="1_5c8j3"]
+[ext_resource type="PackedScene" uid="uid://cnjykaqk404xb" path="res://Player/attack/projectiles/boomerang_projectile.tscn" id="2_dqlrd"]
+
+[node name="Boomerang" type="Node2D" groups=["weapon"]]
+script = ExtResource("1_5c8j3")
+projectile = ExtResource("2_dqlrd")
+level = 1
+damage = 11
+knockback = 44.0
+speed = 20
+metadata/_custom_type_script = "uid://d04wmnoee8hrv"
+
+[node name="attackTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+
+[connection signal="timeout" from="attackTimer" to="." method="_on_attack_timer_timeout"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://wfq1r7jteisr"]
+
+[ext_resource type="Script" uid="uid://dxmvahqmp1xlq" path="res://Player/attack/projectiles/curseor_projectile.gd" id="1_bgf3c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bgf3c"]
+radius = 19.0263
+
+[node name="CurseorProjectile" type="Area2D" node_paths=PackedStringArray("collision") groups=["attack", "attack_friendly"]]
+top_level = true
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_bgf3c")
+collision = NodePath("CollisionShape2D")
+base_damage = 1
+metadata/_custom_type_script = "uid://d1of10fhm7xbj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bgf3c")
+debug_color = Color(0.950702, 0.169991, 0.371474, 0.42)
+
+[node name="despawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="despawnTimer" to="." method="_on_despawn_timer_timeout"]

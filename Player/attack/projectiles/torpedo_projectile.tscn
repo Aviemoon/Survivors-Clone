@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bayib6076ffbv"]
+
+[ext_resource type="Script" uid="uid://borsfwwm3r35e" path="res://Player/attack/projectiles/torpedo_projectile.gd" id="1_0upvc"]
+[ext_resource type="Texture2D" uid="uid://cbx6bb48p0y6d" path="res://Textures/Items/Weapons/Sworld.png" id="2_5y6j8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_samv6"]
+size = Vector2(22, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0upvc"]
+radius = 147.0
+
+[node name="Torpedo_projectile" type="Area2D" groups=["attack", "attack_friendly"]]
+top_level = true
+script = ExtResource("1_0upvc")
+base_damage = 5
+base_speed = 125
+base_knockback_amount = 30
+metadata/_custom_type_script = "uid://d1of10fhm7xbj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_samv6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.785398
+texture = ExtResource("2_5y6j8")
+
+[node name="lockOnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="EnemyRange" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
+
+[node name="Range" type="CollisionShape2D" parent="EnemyRange"]
+shape = SubResource("CircleShape2D_0upvc")
+debug_color = Color(0.603712, 0.386475, 0.959731, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="EnemyRange" to="." method="_on_enemy_range_area_entered"]
+[connection signal="area_exited" from="EnemyRange" to="." method="_on_enemy_range_area_exited"]

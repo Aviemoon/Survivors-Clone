@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsgmg20ro4teq"]
+
+[ext_resource type="Script" uid="uid://d1of10fhm7xbj" path="res://Classes/class_projectile.gd" id="1_dctlc"]
+[ext_resource type="Texture2D" uid="uid://c1u1lekjy2nbe" path="res://Textures/Enemy/explosion_pixelfied.png" id="2_v7jtd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q6xo6"]
+radius = 120.15
+
+[node name="Explosion" type="Area2D"]
+script = ExtResource("1_dctlc")
+metadata/_custom_type_script = "uid://d1of10fhm7xbj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q6xo6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_v7jtd")
+hframes = 4
+vframes = 4

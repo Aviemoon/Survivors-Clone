@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://vy5g6ukxbfe4"]
+
+[ext_resource type="Script" uid="uid://uuuw7aht4bt7" path="res://Player/upgrades/band_of_regen.gd" id="1_ha1lf"]
+[ext_resource type="Texture2D" uid="uid://dlmhbvw25iief" path="res://Textures/Items/Upgrades/BandOfRegen.png" id="2_os8cw"]
+
+[node name="BandOfRegen" type="Node2D" groups=["weapon"]]
+script = ExtResource("1_ha1lf")
+max_level = 8
+regen_cooldown = 0.3
+metadata/_custom_type_script = "uid://ct0r7o1cytfxn"
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_os8cw")

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4lqxqf4xkikk"]
+
+[ext_resource type="Script" uid="uid://c8tummfyti8ba" path="res://Player/attack/projectiles/drone_projectile.gd" id="1_ce4rw"]
+[ext_resource type="Texture2D" uid="uid://c85ee18a5wbxk" path="res://Textures/Items/Weapons/probe.png" id="2_770vg"]
+[ext_resource type="PackedScene" uid="uid://dbh5rrs76vdgn" path="res://Player/attack/projectiles/laser_projectile.tscn" id="2_qbps4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qbps4"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_770vg"]
+radius = 123.199
+
+[node name="Drone_Projectile" type="Area2D" node_paths=PackedStringArray("collision") groups=["attack", "attack_friendly"]]
+monitoring = false
+monitorable = false
+script = ExtResource("1_ce4rw")
+proj = ExtResource("2_qbps4")
+collision = NodePath("CollisionShape2D")
+base_damage = 4
+base_speed = 75
+metadata/_custom_type_script = "uid://d1of10fhm7xbj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -45)
+scale = Vector2(0.85, 0.85)
+shape = SubResource("CircleShape2D_qbps4")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+position = Vector2(0, -45)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("2_770vg")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_770vg")

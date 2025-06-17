@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcbq48nrkra71"]
+
+[ext_resource type="Script" uid="uid://dam5ijfh6khao" path="res://Utility/UI/weapon_icon.gd" id="1_820ro"]
+
+[node name="WeaponIcon" type="ColorRect"]
+custom_minimum_size = Vector2(20, 20)
+offset_right = 16.0
+offset_bottom = 16.0
+color = Color(0, 0, 0, 0.313726)
+script = ExtResource("1_820ro")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1

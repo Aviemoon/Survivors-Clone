@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bposih2di0o34"]
+
+[ext_resource type="Script" path="res://Player/attack/bullet_projectile.gd" id="1_ax1xb"]
+[ext_resource type="Texture2D" uid="uid://u7wy7gbmgqy2" path="res://Textures/Items/Weapons/bullet.png" id="2_shhu4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwgrr"]
+radius = 8.0
+
+[node name="BulletProjectile" type="Area2D" groups=["attack"]]
+top_level = true
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_ax1xb")
+damage = null
+size = null
+speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_shhu4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vwgrr")
+
+[node name="deathTimer" type="Timer" parent="."]
+wait_time = 9.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqlafqinv155r"]
+
+[ext_resource type="Script" uid="uid://cbo2xj84be6b1" path="res://Player/attack/weapons/bubble_blaster.gd" id="1_3816o"]
+[ext_resource type="Texture2D" uid="uid://c2377vcwigpai" path="res://Textures/Items/Weapons/BubbleBlaster.png" id="2_3816o"]
+[ext_resource type="PackedScene" uid="uid://dwmll5xnxxakg" path="res://Player/attack/projectiles/bubble_projectile.tscn" id="2_htlhs"]
+[ext_resource type="AudioStream" uid="uid://bogbp1086k6k7" path="res://Audio/SoundEffect/bubble_pop.mp3" id="4_2dxnd"]
+
+[node name="Bubble_Blaster" type="Node2D" groups=["weapon"]]
+script = ExtResource("1_3816o")
+projectile = ExtResource("2_htlhs")
+base_amount = 6
+cooldown = 1.9
+base_damage = 4
+knockback = 20.0
+metadata/_custom_type_script = "uid://d04wmnoee8hrv"
+
+[node name="attackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_3816o")
+
+[node name="sfx_shoot" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_2dxnd")
+volume_db = -15.356
+
+[connection signal="timeout" from="attackTimer" to="." method="_on_attack_timer_timeout"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://h64h8ykxgx46"]
+
+[ext_resource type="Script" uid="uid://ddnqrknwgaeil" path="res://Player/attack/weapons/thorn.gd" id="1_qch5j"]
+[ext_resource type="PackedScene" uid="uid://dgty2dbsp0g37" path="res://Player/attack/projectiles/thorn_projectile.tscn" id="2_qch5j"]
+[ext_resource type="Texture2D" uid="uid://d3m1gxcjitpap" path="res://Textures/Items/Weapons/needler.png" id="3_so8lv"]
+[ext_resource type="AudioStream" uid="uid://d37kuyx231cyi" path="res://Audio/SoundEffect/whip.mp3" id="4_7ojqm"]
+
+[node name="Thorn" type="Node2D" groups=["weapon"]]
+script = ExtResource("1_qch5j")
+projectile = ExtResource("2_qch5j")
+base_amount = 11
+cooldown = 1.25
+base_damage = 3
+speed = 250
+hp = 1
+metadata/_custom_type_script = "uid://d04wmnoee8hrv"
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_so8lv")
+
+[node name="attackTimer" type="Timer" parent="."]
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7ojqm")
+volume_db = -23.0
+pitch_scale = 4.0
+
+[connection signal="timeout" from="attackTimer" to="." method="_on_attack_timer_timeout"]

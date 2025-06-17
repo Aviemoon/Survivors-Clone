@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://xrxpx5y80b3o"]
+
+[ext_resource type="Script" uid="uid://b0evl38wc026e" path="res://Utility/after_image.gd" id="1_ksvst"]
+
+[node name="AfterImage" type="Sprite2D"]
+modulate = Color(0.63, 0.63, 0.63, 0.591)
+top_level = true
+z_index = -2
+script = ExtResource("1_ksvst")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

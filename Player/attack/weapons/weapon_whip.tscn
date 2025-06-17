@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://tc86pe2gbuq2"]
+
+[ext_resource type="Script" uid="uid://ba875eeadipp" path="res://Player/attack/weapons/weapon_whip.gd" id="1_rok0g"]
+[ext_resource type="PackedScene" uid="uid://dgl65yxhvqysd" path="res://Player/attack/projectiles/whip_projectile.tscn" id="2_8evet"]
+[ext_resource type="Texture2D" uid="uid://df2si34ne4v7r" path="res://Textures/Items/Weapons/whip_icon.png" id="2_ctm8g"]
+
+[node name="Weapon_Whip" type="Node2D" groups=["weapon"]]
+script = ExtResource("1_rok0g")
+projectile = ExtResource("2_8evet")
+base_amount = 1
+cooldown = 2.4
+knockback = 80.0
+
+[node name="attackCooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_ctm8g")
+
+[connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]

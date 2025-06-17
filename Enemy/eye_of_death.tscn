@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://codiiay5ne87r"]
+
+[ext_resource type="Script" uid="uid://blebt236y73st" path="res://Enemy/eye_of_death.gd" id="1_q186y"]
+[ext_resource type="PackedScene" uid="uid://b6vaqvxhehjuk" path="res://Enemy/enemy_kolbold_weak.tscn" id="2_gdw46"]
+[ext_resource type="Texture2D" uid="uid://ve0tlv1580tu" path="res://Textures/Enemy/eye wip png.png" id="2_idfno"]
+[ext_resource type="PackedScene" uid="uid://chem6i0miefge" path="res://Utility/hitbox.tscn" id="3_two7a"]
+[ext_resource type="PackedScene" uid="uid://d3jlhy8sh86ef" path="res://Objects/magnet.tscn" id="3_v2la6"]
+[ext_resource type="PackedScene" uid="uid://bposih2di0o34" path="res://Player/attack/projectiles/bullet_projectile.tscn" id="3_w54gr"]
+[ext_resource type="PackedScene" uid="uid://c5vt11nsnlxlq" path="res://Utility/hurtbox.tscn" id="4_gdw46"]
+[ext_resource type="AudioStream" uid="uid://coukvtvfyxp3u" path="res://Audio/SoundEffect/ice.wav" id="5_idfno"]
+[ext_resource type="AudioStream" uid="uid://2ahrir3rm1h3" path="res://Audio/SoundEffect/enemy_hit.ogg" id="6_two7a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2la6"]
+atlas = ExtResource("2_idfno")
+region = Rect2(0, 0, 42, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w54gr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2la6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vl0qj"]
+radius = 17.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_24lu2"]
+radius = 33.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v2la6"]
+radius = 36.0
+
+[node name="Eye_of_Death" type="CharacterBody2D" node_paths=PackedStringArray("sfx_hit") groups=["attack", "enemy"]]
+collision_layer = 4
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_q186y")
+spawn = ExtResource("2_gdw46")
+proj = ExtResource("3_w54gr")
+movement_speed = 46.0
+hp = 790
+elite = true
+damage = 4
+xp_amount = 400
+drops = Array[Resource]([ExtResource("3_v2la6")])
+sfx_hit = NodePath("sfx_hit")
+metadata/_custom_type_script = "uid://dooqsm6jawkjk"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_w54gr")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_vl0qj")
+debug_color = Color(0.998549, 0.00599367, 0.117826, 0.42)
+
+[node name="Hitbox" parent="." instance=ExtResource("3_two7a")]
+collision_layer = 4
+damage = 3
+
+[node name="HitboxCollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_24lu2")
+debug_color = Color(0.583225, 0.549893, 0.0691291, 0.42)
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_gdw46")]
+collision_layer = 6
+collision_mask = 2
+HurtboxType = 1
+
+[node name="HurtboxCollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_v2la6")
+debug_color = Color(0.75933, 0.224415, 0.958206, 0.42)
+
+[node name="dashTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 4.3
+autostart = true
+
+[node name="spawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="sfx_dash" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_idfno")
+volume_db = -8.966
+
+[node name="sfx_hit" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_two7a")
+volume_db = -20.621
+pitch_scale = 0.52
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+[connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
+
+[editable path="Hitbox"]
+[editable path="Hurtbox"]

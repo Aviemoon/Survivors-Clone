@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7m7v1v35tuqm"]
+
+[ext_resource type="Script" uid="uid://dooqsm6jawkjk" path="res://Classes/class_enemy.gd" id="1_4lpq3"]
+
+[node name="class_enemy" type="CharacterBody2D"]
+script = ExtResource("1_4lpq3")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

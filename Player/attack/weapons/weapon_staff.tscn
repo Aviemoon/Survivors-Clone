@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://glsvqpekrn7t"]
+
+[ext_resource type="Script" uid="uid://sv63i5x4jt0n" path="res://Player/attack/weapons/weapon_staff.gd" id="1_et0bi"]
+[ext_resource type="PackedScene" uid="uid://y4bikyw5bmks" path="res://Player/attack/projectiles/green_bolt.tscn" id="2_jjtbc"]
+[ext_resource type="Texture2D" uid="uid://di31edtqvtk4t" path="res://Textures/Items/Weapons/staff.png" id="2_mvw1f"]
+[ext_resource type="AudioStream" uid="uid://b7rrl8kyfubh2" path="res://Audio/SoundEffect/magical_spell_cast.mp3" id="3_k855g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvd3l"]
+radius = 210.002
+
+[node name="Weapon_Staff" type="Node2D" groups=["weapon"]]
+script = ExtResource("1_et0bi")
+projectile = ExtResource("2_jjtbc")
+base_amount = 5
+cooldown = 1.75
+base_damage = 4
+knockback = 40.0
+speed = 255
+
+[node name="range" type="Area2D" parent="."]
+visible = false
+collision_layer = 3
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="range"]
+shape = SubResource("CircleShape2D_xvd3l")
+
+[node name="ShootMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="shootTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_mvw1f")
+
+[node name="sfx_shoot" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_k855g")
+volume_db = -31.701
+pitch_scale = 2.36
+max_polyphony = 13
+
+[connection signal="area_entered" from="range" to="." method="_on_range_area_entered"]
+[connection signal="area_exited" from="range" to="." method="_on_range_area_exited"]
+[connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="range" to="." method="_on_range_body_exited"]
+[connection signal="timeout" from="shootTimer" to="." method="_on_shoot_timer_timeout"]

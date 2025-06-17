@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3xm851if28ef"]
+
+[ext_resource type="Script" uid="uid://bdl2djwj36pwj" path="res://Player/attack/weapons/curse_sword.gd" id="1_itqyh"]
+[ext_resource type="Texture2D" uid="uid://31s7ftvy2n4o" path="res://Textures/Items/Weapons/FireBlade.png" id="2_13rrj"]
+[ext_resource type="PackedScene" uid="uid://ci7thxdy1tndr" path="res://Player/attack/projectiles/curse_sword_projectile.tscn" id="2_up0kv"]
+
+[node name="CurseSword" type="Node2D"]
+script = ExtResource("1_itqyh")
+projectile = ExtResource("2_up0kv")
+synergy = true
+base_amount = 1
+base_damage = 2
+metadata/_custom_type_script = "uid://d04wmnoee8hrv"
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_13rrj")

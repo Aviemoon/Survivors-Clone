@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhdr3vwxy3sva"]
+
+[ext_resource type="Script" uid="uid://kaexcqmsiqki" path="res://Player/upgrades/sharpener.gd" id="1_ku4st"]
+[ext_resource type="Texture2D" uid="uid://cdltulchrlo7m" path="res://Textures/Items/Upgrades/pakari.png" id="2_mx0se"]
+
+[node name="Sharpener" type="Node2D" groups=["weapon"]]
+script = ExtResource("1_ku4st")
+max_level = 4
+damage = 1
+metadata/_custom_type_script = "uid://ct0r7o1cytfxn"
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_mx0se")

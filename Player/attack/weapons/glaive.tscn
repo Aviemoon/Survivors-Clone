@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba2hnun82p2ji"]
+
+[ext_resource type="Script" uid="uid://t5xhv6nccaxs" path="res://Player/attack/weapons/glaive.gd" id="1_ah7f6"]
+[ext_resource type="PackedScene" uid="uid://ph0n2t5231kg" path="res://Player/attack/projectiles/glaive_projectile.tscn" id="2_b4uay"]
+[ext_resource type="Texture2D" uid="uid://ch2klatfnk3dn" path="res://Textures/Items/Weapons/glaive.png" id="3_bngl5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4uay"]
+size = Vector2(570, 288)
+
+[node name="Glaive" type="Node2D" groups=["weapon"]]
+script = ExtResource("1_ah7f6")
+projectile = ExtResource("2_b4uay")
+base_amount = 1
+cooldown = 3.0
+base_damage = 1
+knockback = 25.0
+speed = 60
+metadata/_custom_type_script = "uid://d04wmnoee8hrv"
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_bngl5")
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="RangeCollision" type="CollisionShape2D" parent="Range"]
+shape = SubResource("RectangleShape2D_b4uay")
+
+[node name="attackTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="attackTimer" to="." method="_on_attack_timer_timeout"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4vgustd35yl0"]
+
+[ext_resource type="Texture2D" uid="uid://brjfp7yxp7l62" path="res://Textures/Items/Pickups/banana.png" id="1_6p3d6"]
+[ext_resource type="Script" uid="uid://7p8cvdl601we" path="res://Objects/food.gd" id="1_tak5s"]
+[ext_resource type="AudioStream" uid="uid://dtxv52iogodum" path="res://Audio/SoundEffect/gib.mp3" id="3_ltbo0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tak5s"]
+radius = 11.0
+
+[node name="food" type="Area2D" groups=["loot"]]
+z_index = -1
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_tak5s")
+textures = Array[Resource]([ExtResource("1_6p3d6")])
+speed_mod = 5.8
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6p3d6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tak5s")
+
+[node name="sfx_collect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ltbo0")
+volume_db = -23.034
+pitch_scale = 1.46
+
+[connection signal="picked_up" from="." to="." method="_on_picked_up"]

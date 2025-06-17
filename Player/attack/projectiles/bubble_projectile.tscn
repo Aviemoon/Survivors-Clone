@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwmll5xnxxakg"]
+
+[ext_resource type="Script" uid="uid://d2irqrgr8n20e" path="res://Player/attack/projectiles/bubble_projectile.gd" id="1_qghc3"]
+[ext_resource type="Texture2D" uid="uid://heyrm0fu8n3" path="res://Textures/Items/Weapons/bubble.png" id="2_xvtkx"]
+[ext_resource type="AudioStream" uid="uid://cips72g00un4u" path="res://Audio/SoundEffect/laser_small.mp3" id="3_xvtkx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kttb5"]
+radius = 6.66667
+
+[node name="Bubble_projectile" type="Area2D" groups=["attack", "attack_friendly"]]
+top_level = true
+collision_layer = 2
+collision_mask = 4
+monitoring = false
+monitorable = false
+script = ExtResource("1_qghc3")
+base_damage = 1
+base_speed = 260
+base_knockback_amount = 35
+metadata/_custom_type_script = "uid://d1of10fhm7xbj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("CircleShape2D_kttb5")
+debug_color = Color(0.717892, 0.597284, 0.99336, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_xvtkx")
+
+[node name="despawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="sfx_laser" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_xvtkx")
+volume_db = -38.552
+pitch_scale = 1.62
+
+[connection signal="stopped" from="." to="." method="_on_stopped"]
+[connection signal="timeout" from="despawnTimer" to="." method="_on_despawn_timer_timeout"]

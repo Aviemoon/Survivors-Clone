@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbmxrq70bpi55"]
+
+[ext_resource type="Script" uid="uid://baicdhcxnimai" path="res://Player/attack/projectiles/Sword.gd" id="1_yojj7"]
+[ext_resource type="PackedScene" uid="uid://xrxpx5y80b3o" path="res://Utility/after_image.tscn" id="2_5q43s"]
+[ext_resource type="Texture2D" uid="uid://bf0k8trboi723" path="res://Textures/Items/Weapons/sword.png" id="2_fd4bq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoqna"]
+size = Vector2(6.74517, 34)
+
+[node name="Sword" type="Area2D" node_paths=PackedStringArray("collision") groups=["attack", "attack_friendly"]]
+light_mask = 4
+visibility_layer = 4
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_yojj7")
+afterimage = ExtResource("2_5q43s")
+collision = NodePath("CollisionShape2D")
+base_damage = 8
+base_speed = 60
+base_knockback_amount = 45
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.372585, -68)
+scale = Vector2(0.87, 0.87)
+shape = SubResource("RectangleShape2D_aoqna")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+position = Vector2(-0.372584, -66.3726)
+rotation = 0.785398
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("2_fd4bq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

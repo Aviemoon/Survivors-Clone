@@ -1,0 +1,113 @@
+[gd_scene load_steps=16 format=3 uid="uid://c5s7fdc45dcm"]
+
+[ext_resource type="Script" uid="uid://dcoi8sk3lhc2l" path="res://Enemy/rotten.gd" id="1_rs4oe"]
+[ext_resource type="PackedScene" uid="uid://b4vgustd35yl0" path="res://Objects/food.tscn" id="2_fxvrm"]
+[ext_resource type="Texture2D" uid="uid://d2m5jjlgsjsia" path="res://Textures/Enemy/Rotten.png" id="2_raoju"]
+[ext_resource type="AudioStream" uid="uid://bqwxs6r4eldc0" path="res://Audio/SoundEffect/enemy_hit2.mp3" id="3_5xnlt"]
+[ext_resource type="PackedScene" uid="uid://c5vt11nsnlxlq" path="res://Utility/hurtbox.tscn" id="3_nl4c6"]
+[ext_resource type="PackedScene" uid="uid://chem6i0miefge" path="res://Utility/hitbox.tscn" id="4_6a40w"]
+[ext_resource type="AudioStream" uid="uid://dtxv52iogodum" path="res://Audio/SoundEffect/gib.mp3" id="5_6a40w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raoju"]
+atlas = ExtResource("2_raoju")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl4c6"]
+atlas = ExtResource("2_raoju")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a40w"]
+atlas = ExtResource("2_raoju")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xnlt"]
+atlas = ExtResource("2_raoju")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fxvrm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raoju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl4c6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a40w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xnlt")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 2.5
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3wejg"]
+radius = 4.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5xnlt"]
+radius = 8.0
+height = 34.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fxvrm"]
+radius = 5.0
+height = 18.0
+
+[node name="Rotten" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "sfx_hit") groups=["attack", "enemy"]]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_rs4oe")
+movement_speed = 35.0
+hp = 123
+elite = true
+knockback_recovery = 6.0
+xp_amount = 50
+drops = Array[Resource]([ExtResource("2_fxvrm")])
+sprite = NodePath("AnimatedSprite2D")
+sfx_hit = NodePath("sfx_hit")
+metadata/_custom_type_script = "uid://dooqsm6jawkjk"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fxvrm")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.883239
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3wejg")
+
+[node name="sfx_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5xnlt")
+volume_db = -16.967
+pitch_scale = 1.25
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_nl4c6")]
+collision_layer = 6
+collision_mask = 7
+HurtboxType = 1
+
+[node name="HurtboxCollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CapsuleShape2D_5xnlt")
+
+[node name="Hitbox" parent="." instance=ExtResource("4_6a40w")]
+collision_layer = 4
+
+[node name="HitboxCollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CapsuleShape2D_fxvrm")
+
+[node name="upgradeTimer" type="Timer" parent="."]
+wait_time = 4.2
+
+[node name="sfx_lvlup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_6a40w")
+volume_db = -16.752
+pitch_scale = 0.76
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+[connection signal="timeout" from="upgradeTimer" to="." method="_on_upgrade_timer_timeout"]
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

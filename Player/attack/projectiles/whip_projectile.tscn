@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgl65yxhvqysd"]
+
+[ext_resource type="Script" uid="uid://nxbfuwrr7od7" path="res://Player/attack/projectiles/whip_projectile.gd" id="1_feoj8"]
+[ext_resource type="Texture2D" uid="uid://cuf7p4fx38rgm" path="res://Textures/Items/Weapons/whip.png" id="1_kwa84"]
+[ext_resource type="AudioStream" uid="uid://d37kuyx231cyi" path="res://Audio/SoundEffect/whip.mp3" id="3_le11t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3aij"]
+size = Vector2(202.5, 47.5)
+
+[node name="WhipProjectile" type="Area2D" node_paths=PackedStringArray("collision") groups=["attack", "attack_friendly"]]
+top_level = true
+collision_layer = 2
+script = ExtResource("1_feoj8")
+collision = NodePath("CollisionShape2D")
+base_damage = 15
+base_knockback_amount = 140
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+unique_name_in_owner = true
+position = Vector2(88, 0)
+scale = Vector2(0.8, 1.13333)
+texture = ExtResource("1_kwa84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(88, 0)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_y3aij")
+
+[node name="deferredTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.25
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_le11t")
+volume_db = -23.0
+pitch_scale = 1.95
+
+[connection signal="timeout" from="deferredTimer" to="." method="_on_deferred_timer_timeout"]

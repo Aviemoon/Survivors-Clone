@@ -1,0 +1,223 @@
+[gd_scene load_steps=3 format=3 uid="uid://c47snby84sumw"]
+
+[ext_resource type="Script" uid="uid://cmp21gm33y1ii" path="res://Utility/main_menu.gd" id="1_a8idn"]
+[ext_resource type="Theme" uid="uid://d1migwmo8e8th" path="res://Utility/UI/base_theme.tres" id="2_5puen"]
+
+[node name="MainMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_a8idn")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5puen")
+
+[node name="Background" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5puen")
+color = Color(0.126269, 0.126314, 0.257205, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 35)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -10.0
+offset_right = 25.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5puen")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/PlayButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.5
+offset_right = 20.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5puen")
+theme_override_font_sizes/font_size = 26
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_Title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.5
+offset_top = 40.0
+offset_right = 59.5
+offset_bottom = 98.0
+grow_horizontal = 2
+theme = ExtResource("2_5puen")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 42
+text = "Untitled Survivors Clone"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 35)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 32.5
+offset_right = 40.0
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5puen")
+
+[node name="Label" type="Label" parent="Control/QuitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.5
+offset_right = 20.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5puen")
+theme_override_font_sizes/font_size = 26
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ClassicButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = 40.0
+offset_right = -50.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxClassic" type="VBoxContainer" parent="Control/ClassicButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -200.0
+offset_right = 60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="Control/ClassicButton/VBoxClassic"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 26
+text = "Classic"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Control/ClassicButton/VBoxClassic"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "A run lasts 15 minutes. Survive until the end to win!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="EndlessButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 170.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxEndless" type="VBoxContainer" parent="Control/EndlessButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -200.0
+offset_right = 60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="Control/EndlessButton/VBoxEndless"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 26
+text = "Endless"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Control/EndlessButton/VBoxEndless"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "A run lasts forever. Survive for as long as possible!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Control/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/ClassicButton" to="." method="_on_classic_button_pressed"]
+[connection signal="pressed" from="Control/EndlessButton" to="." method="_on_endless_button_pressed"]

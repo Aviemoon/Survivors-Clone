@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://deliow5vhhu87"]
+
+[ext_resource type="Theme" uid="uid://d1migwmo8e8th" path="res://Utility/UI/base_theme.tres" id="1_tf0ju"]
+[ext_resource type="Script" uid="uid://bmnkxn8r3n05q" path="res://Utility/UI/item_choice.gd" id="2_422l5"]
+[ext_resource type="Texture2D" uid="uid://bf0k8trboi723" path="res://Textures/Items/Weapons/sword.png" id="2_gm4v5"]
+
+[node name="ItemChoice" type="Button"]
+custom_minimum_size = Vector2(180, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 25.0
+offset_right = 90.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme = ExtResource("1_tf0ju")
+script = ExtResource("2_422l5")
+
+[node name="IconBackgroundShadow" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 30.0
+offset_bottom = 30.0
+theme = ExtResource("1_tf0ju")
+color = Color(0, 0, 0, 0.356863)
+
+[node name="IconBackground" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 29.0
+offset_bottom = 29.0
+theme = ExtResource("1_tf0ju")
+color = Color(0.222944, 0.290429, 0.539548, 1)
+
+[node name="Icon" type="TextureRect" parent="IconBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gm4v5")
+expand_mode = 1
+
+[node name="Label_name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_right = 135.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 16
+text = "Name"
+autowrap_mode = 2
+
+[node name="Label_level" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -75.0
+offset_bottom = 15.0
+grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.156863)
+theme_override_font_sizes/font_size = 12
+text = "Lvl: "
+horizontal_alignment = 2
+
+[node name="Label_description" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -17.0
+offset_right = 175.0
+offset_bottom = -2.0
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.0666667)
+theme_override_font_sizes/font_size = 8
+text = "description"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
